@@ -36,10 +36,11 @@ try {
   );
 } catch (error) {
   console.error('Failed to render app:', error);
+  const errorMessage = error instanceof Error ? error.message : 'Unknown error occurred';
   container.innerHTML = `
     <div style="display: flex; justify-content: center; align-items: center; height: 100vh; flex-direction: column; font-family: system-ui;">
       <h1 style="color: #dc3545;">⚠️ Error Loading App</h1>
-      <p style="color: #666;">${error.message}</p>
+      <p style="color: #666;">${errorMessage}</p>
       <p style="color: #999; font-size: 12px; margin-top: 20px;">Check console for details</p>
     </div>
   `;
