@@ -1,10 +1,9 @@
 /**
  * Redux Store Configuration
+ * Web-compatible version
  */
 
 import {configureStore} from '@reduxjs/toolkit';
-import {setupListeners} from '@reduxjs/toolkit/query';
-import {baseApi} from './api/baseApi';
 import authSlice from './slices/authSlice';
 import restaurantSlice from './slices/restaurantSlice';
 import ordersSlice from './slices/ordersSlice';
@@ -15,9 +14,9 @@ import crmSlice from './slices/crmSlice';
 import marketingSlice from './slices/marketingSlice';
 import branchSlice from './slices/branchSlice';
 
+// Simplified store for web builds - RTK Query causes build issues
 export const store = configureStore({
   reducer: {
-    [baseApi.reducerPath]: baseApi.reducer,
     auth: authSlice,
     restaurant: restaurantSlice,
     orders: ordersSlice,
@@ -33,11 +32,8 @@ export const store = configureStore({
       serializableCheck: {
         ignoredActions: ['persist/PERSIST'],
       },
-    }).concat(baseApi.middleware),
+    }),
 });
-
-setupListeners(store.dispatch);
 
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
-
