@@ -31,11 +31,14 @@ module.exports = (env, argv) => {
       'buffer': false,
     },
   },
+  ignoreWarnings: [
+    /Module not found: Error: Can't resolve '@standard-schema\/utils'/,
+  ],
   module: {
     rules: [
       {
         test: /\.(js|jsx|ts|tsx)$/,
-        exclude: /node_modules\/(?!(react-native-.*|@react-native.*)\/).*/,
+        exclude: /node_modules\/(?!(react-native-.*|@react-native.*|@reduxjs\/toolkit)\/).*/,
         use: {
           loader: 'babel-loader',
           options: {
@@ -92,6 +95,7 @@ module.exports = (env, argv) => {
         warnings: false,
       },
     },
+  },
   };
 };
 

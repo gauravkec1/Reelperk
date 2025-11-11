@@ -20,8 +20,9 @@ import Input from '../../components/common/Input';
 import Button from '../../components/common/Button';
 import {colors, spacing, typography} from '../../config/theme';
 import {ROUTES} from '../../constants/routes';
-import {AuthStackParamList} from '../../navigation/AuthNavigator';
+import {AuthStackParamList} from '../../navigation/navigationTypes';
 import {setCredentials} from '../../store/slices/authSlice';
+import {UserRole} from '../../types/auth.types';
 
 type NavigationProp = NativeStackNavigationProp<AuthStackParamList>;
 
@@ -46,7 +47,7 @@ const LoginScreen: React.FC = () => {
         id: '1',
         email,
         name: 'Test User',
-        role: 'owner' as const,
+        role: UserRole.OWNER,
         restaurantId: '1',
         isActive: true,
         createdAt: new Date().toISOString(),

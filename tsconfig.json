@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "esnext",
     "module": "commonjs",
-    "lib": ["es2017"],
+    "lib": ["es2017", "dom"],
     "allowJs": true,
     "jsx": "react-native",
     "noEmit": true,
@@ -41,7 +41,6 @@
     "jest.config.js",
     "webpack.config.js",
     "web-build"
-  ],
-  "skipLibCheck": true
+  ]
 }
 

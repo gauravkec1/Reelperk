@@ -67,6 +67,8 @@ export const ROUTES = {
   CAMPAIGNS: 'Campaigns',
   SOCIAL_INTEGRATION: 'SocialIntegration',
   COMMUNICATION: 'Communication',
+  PROMO_CODES: 'PromoCodes',
+  REFERRAL_CAMPAIGNS: 'ReferralCampaigns',
   
   // Finance Routes
   FINANCE: 'Finance',
@@ -90,12 +92,6 @@ export const ROUTES = {
   LOYALTY_PROGRAM: 'LoyaltyProgram',
   CUSTOMER_FEEDBACK: 'CustomerFeedback',
   CUSTOMER_SEGMENTS: 'CustomerSegments',
-  
-  // Marketing Routes
-  MARKETING: 'Marketing',
-  CAMPAIGNS: 'Campaigns',
-  PROMO_CODES: 'PromoCodes',
-  REFERRAL_CAMPAIGNS: 'ReferralCampaigns',
   
   // Branch Management Routes
   BRANCHES: 'Branches',

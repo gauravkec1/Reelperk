@@ -24,11 +24,8 @@ const MetricCard: React.FC<MetricCardProps> = ({
   trend,
   onPress,
 }) => {
-  const CardComponent = onPress ? TouchableOpacity : View;
-
-  return (
-    <CardComponent onPress={onPress} activeOpacity={0.7}>
-      <Card style={styles.card}>
+  const content = (
+    <Card style={styles.card}>
         <View style={styles.header}>
           {icon && (
             <View style={[styles.iconContainer, {backgroundColor: `${iconColor}20`}]}>
@@ -59,8 +56,17 @@ const MetricCard: React.FC<MetricCardProps> = ({
         <Text style={styles.value}>{value}</Text>
         <Text style={styles.title}>{title}</Text>
       </Card>
-    </CardComponent>
   );
+
+  if (onPress) {
+    return (
+      <TouchableOpacity onPress={onPress} activeOpacity={0.7}>
+        {content}
+      </TouchableOpacity>
+    );
+  }
+
+  return <View>{content}</View>;
 };
 
 const styles = StyleSheet.create({

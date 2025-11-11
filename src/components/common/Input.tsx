@@ -39,14 +39,14 @@ const Input: React.FC<InputProps> = ({
       <View
         style={[
           styles.inputContainer,
-          isFocused && styles.inputContainerFocused,
-          error && styles.inputContainerError,
+          isFocused ? styles.inputContainerFocused : null,
+          error ? styles.inputContainerError : null,
         ]}>
         {leftIcon && (
           <Icon name={leftIcon} size={20} color={colors.textSecondary} style={styles.leftIcon} />
         )}
         <TextInput
-          style={[styles.input, leftIcon && styles.inputWithLeftIcon]}
+          style={[styles.input, leftIcon ? styles.inputWithLeftIcon : null]}
           placeholderTextColor={colors.textSecondary}
           secureTextEntry={secureTextEntry && !isPasswordVisible}
           onFocus={() => setIsFocused(true)}

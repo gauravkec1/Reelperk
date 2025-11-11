@@ -14,7 +14,7 @@ import {useSelector} from 'react-redux';
 import Card from '../../components/common/Card';
 import Button from '../../components/common/Button';
 import Loading from '../../components/common/Loading';
-import {colors, spacing, typography} from '../../config/theme';
+import {colors, spacing, typography, shadows} from '../../config/theme';
 import {RootState} from '../../store';
 import ENV from '../../config/env';
 
@@ -174,7 +174,7 @@ const styles = StyleSheet.create({
     padding: spacing.lg,
     borderRadius: 16,
     marginBottom: spacing.lg,
-    ...colors.shadows?.md,
+    ...shadows.md,
   },
   urlContainer: {
     width: '100%',
