@@ -57,8 +57,9 @@ module.exports = (env, argv) => {
                 },
               }],
             ],
-            // Exclude react-native-reanimated for web builds
+            // CRITICAL: Don't use babel.config.js for web builds (it has react-native-reanimated)
             babelrc: false,
+            configFile: false,
             cacheDirectory: true,
           },
         },

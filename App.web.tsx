@@ -1,12 +1,13 @@
 /**
  * Web-specific App wrapper
+ * Production-ready version
  */
 
 import React from 'react';
 import {Provider} from 'react-redux';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
-import {StatusBar, Platform} from 'react-native';
+import {StatusBar, Platform, View, Text, StyleSheet} from 'react-native';
 
 import {store} from './src/store';
 import AppNavigator from './src/navigation/AppNavigator';
@@ -16,10 +17,15 @@ import {ErrorBoundary} from './src/components/common/ErrorBoundary';
 if (typeof document !== 'undefined') {
   const style = document.createElement('style');
   style.textContent = `
+    * {
+      box-sizing: border-box;
+    }
     body {
       margin: 0;
       padding: 0;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
       overflow: hidden;
     }
     #root {
@@ -29,7 +35,10 @@ if (typeof document !== 'undefined') {
       flex-direction: column;
     }
   `;
-  document.head.appendChild(style);
+  if (!document.head.querySelector('style[data-reelperk]')) {
+    style.setAttribute('data-reelperk', 'true');
+    document.head.appendChild(style);
+  }
 }
 
 const App: React.FC = () => {
@@ -48,4 +57,3 @@ const App: React.FC = () => {
 };
 
 export default App;
-
