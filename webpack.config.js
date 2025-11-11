@@ -34,6 +34,19 @@ module.exports = (env, argv) => {
   ignoreWarnings: [
     /Module not found: Error: Can't resolve '@standard-schema\/utils'/,
   ],
+  optimization: {
+    minimize: isProduction,
+    splitChunks: {
+      chunks: 'all',
+      cacheGroups: {
+        vendor: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendors',
+          chunks: 'all',
+        },
+      },
+    },
+  },
   module: {
     rules: [
       {
