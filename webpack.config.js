@@ -1,16 +1,20 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-module.exports = {
-  mode: 'development',
-  entry: {
-    main: './src/index.web.tsx',
-  },
-  output: {
-    path: path.resolve(__dirname, 'web-build'),
-    filename: 'bundle.js',
-    publicPath: '/',
-  },
+module.exports = (env, argv) => {
+  const isProduction = argv.mode === 'production';
+  
+  return {
+    mode: argv.mode || 'development',
+    entry: {
+      main: './src/index.web.tsx',
+    },
+    output: {
+      path: path.resolve(__dirname, 'web-build'),
+      filename: isProduction ? '[name].[contenthash].js' : 'bundle.js',
+      publicPath: '/',
+      clean: true,
+    },
   resolve: {
     extensions: ['.web.tsx', '.web.ts', '.web.js', '.tsx', '.ts', '.js', '.jsx', '.json'],
     alias: {
@@ -50,6 +54,8 @@ module.exports = {
                 },
               }],
             ],
+            // Exclude react-native-reanimated for web builds
+            babelrc: false,
             cacheDirectory: true,
           },
         },
@@ -86,6 +92,6 @@ module.exports = {
         warnings: false,
       },
     },
-  },
+  };
 };
 
