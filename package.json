@@ -1,0 +1,51 @@
+{
+  "name": "reelperk-erp",
+  "version": "1.0.0",
+  "description": "Complete ERP and Customer Engagement Platform for Restaurants",
+  "scripts": {
+    "start": "react-native start",
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "web": "webpack serve --mode development",
+    "web:build": "webpack --mode production",
+    "preview": "concurrently \"npm run web\" \"npm run backend:dev\"",
+    "preview:all": "concurrently \"npm run web\" \"npm run backend:dev\" \"npm start\"",
+    "backend:dev": "cd backend && npm run dev",
+    "backend:start": "cd backend && npm start",
+    "backend:migrate": "cd backend && npm run migrate",
+    "emulator": "emulator -avd Pixel_5_API_33",
+    "test": "jest",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "type-check": "tsc --noEmit",
+    "build:android": "cd android && gradlew assembleRelease",
+    "build:android:debug": "cd android && gradlew assembleDebug",
+    "build:apk": "cd android && gradlew assembleRelease",
+    "build:aab": "cd android && gradlew bundleRelease",
+    "clean:android": "cd android && gradlew clean"
+  },
+  "keywords": [
+    "erp",
+    "restaurant",
+    "cafe",
+    "qr-code",
+    "customer-engagement"
+  ],
+  "author": "ReelPerk Team",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/preset-env": "^7.28.5",
+    "@babel/preset-react": "^7.28.5",
+    "@babel/preset-typescript": "^7.28.5",
+    "babel-loader": "^10.0.0",
+    "babel-plugin-module-resolver": "^5.0.2",
+    "concurrently": "^9.2.1",
+    "html-webpack-plugin": "^5.6.4",
+    "react-dom": "^19.2.0",
+    "react-native-web": "^0.21.2",
+    "webpack": "^5.102.1",
+    "webpack-cli": "^6.0.1",
+    "webpack-dev-server": "^5.2.2"
+  }
+}

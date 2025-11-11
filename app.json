@@ -1,0 +1,57 @@
+{
+  "name": "ReelPerk ERP",
+  "displayName": "ReelPerk ERP",
+  "expo": {
+    "name": "ReelPerk ERP",
+    "slug": "reelperk-erp",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./src/assets/images/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./src/assets/images/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#8B4513"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.reelperk.erp",
+      "buildNumber": "1.0.0",
+      "infoPlist": {
+        "NSCameraUsageDescription": "This app needs access to camera to scan QR codes and upload media.",
+        "NSPhotoLibraryUsageDescription": "This app needs access to photo library to upload images and videos.",
+        "NSMicrophoneUsageDescription": "This app needs access to microphone for video recording."
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./src/assets/images/adaptive-icon.png",
+        "backgroundColor": "#8B4513"
+      },
+      "package": "com.reelperk.erp",
+      "versionCode": 1,
+      "permissions": [
+        "CAMERA",
+        "READ_EXTERNAL_STORAGE",
+        "WRITE_EXTERNAL_STORAGE",
+        "RECORD_AUDIO"
+      ]
+    },
+    "web": {
+      "favicon": "./src/assets/images/favicon.png"
+    },
+    "plugins": [
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "The app accesses your photos to upload media content.",
+          "cameraPermission": "The app accesses your camera to scan QR codes and take photos."
+        }
+      ]
+    ]
+  }
+}
+

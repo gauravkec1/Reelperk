@@ -1,0 +1,56 @@
+========================================
+  REELPERK ERP - LAUNCH INSTRUCTIONS
+========================================
+
+YOUR APP IS READY TO LAUNCH!
+
+To start the app, follow these steps:
+
+STEP 1: Start Backend Server
+-----------------------------
+1. Open a terminal/command prompt
+2. Navigate to backend folder:
+   cd backend
+3. Install dependencies (first time only):
+   npm install
+4. Start the server:
+   npm run dev
+
+Backend will run on: http://localhost:5000
+
+STEP 2: Start Mobile App
+--------------------------
+1. Open a NEW terminal/command prompt
+2. Navigate to project root:
+   cd ReelPerk
+3. Install dependencies (first time only):
+   npm install
+4. Start Metro bundler:
+   npm start
+5. In another terminal, run:
+   npm run ios      (for iOS)
+   OR
+   npm run android  (for Android)
+
+STEP 3: Verify
+--------------
+- Backend Health: http://localhost:5000/health
+- API Documentation: http://localhost:5000/api-docs
+- Mobile app should show login screen
+
+QUICK LAUNCH (Windows):
+-----------------------
+Double-click: START_APP.bat
+
+DATABASE SETUP (First Time):
+-----------------------------
+1. Install PostgreSQL
+2. Create database:
+   createdb reelperk_erp
+3. Run migrations:
+   psql -U postgres -d reelperk_erp -f database/migrations/001_initial_schema.sql
+
+========================================
+  YOUR APP IS READY!
+========================================
+

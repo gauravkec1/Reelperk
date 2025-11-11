@@ -1,0 +1,29 @@
+{
+  "preview": {
+    "web": {
+      "command": "npm run web",
+      "url": "http://localhost:3000",
+      "description": "Preview app in web browser"
+    },
+    "android": {
+      "command": "npm run android",
+      "description": "Preview app in Android emulator"
+    },
+    "full": {
+      "command": "npm run preview",
+      "description": "Preview app with backend"
+    }
+  },
+  "debug": {
+    "web": {
+      "type": "chrome",
+      "url": "http://localhost:3000",
+      "webRoot": "${workspaceFolder}"
+    },
+    "android": {
+      "type": "reactnative",
+      "platform": "android"
+    }
+  }
+}
+
