@@ -15,7 +15,7 @@ module.exports = (env, argv) => {
       publicPath: '/',
       clean: true,
     },
-  resolve: {
+    resolve: {
     extensions: ['.web.tsx', '.web.ts', '.web.js', '.tsx', '.ts', '.js', '.jsx', '.json'],
     alias: {
       'react-native$': 'react-native-web',
@@ -76,7 +76,8 @@ module.exports = (env, argv) => {
   plugins: [
     new HtmlWebpackPlugin({
       template: './web/index.html',
-      inject: true,
+      inject: 'body',
+      scriptLoading: 'defer',
     }),
   ],
   devServer: {
